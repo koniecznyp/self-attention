@@ -10,9 +10,13 @@ $$Attention(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$$
 
 It is the core architectural component of modern Large Language Models (LLMs), enabling them to capture long-range dependencies and nuanced meanings that a static dictionary cannot provide.
 
-## Example Multi-Contextual "Light" word
+## Multi-Contextual attention example
 
-The word **"light"** is a perfect candidate for testing attention because its meaning shifts dramatically based on its context. This project simulates four distinct scenarios:
+In this example, each word is assigned a vector that describes certain features. For this example, I created several of the following features in the form of matrices: `Electronics`, `Weight`, `Fire`, `Action`, and `Emotions` and assigned weights to them. For example the word `macbook` will have the following weights `[2.5, 0.3, 0.0, 0.0, 0.0]` where feature related to electronicts is highlighted (2.5).
+
+In real llm, features are not "fixed." They are initially initialized with random values ​​and change as the network is trained to its final form, so the better the network is trained, the better the results will be. However, for this example, they are fixed to simply demonstrate the mechanism in action.
+
+So lets take a look on **"light"** word which is a perfect candidate for testing attention because its meaning shifts dramatically based on its context. We take a look on four distinct scenarios:
 
 | Sentence | Role of "Light" | Primary Feature |
 | :--- | :--- | :--- |
